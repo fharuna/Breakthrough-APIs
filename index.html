@@ -8,93 +8,146 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
 </head>
-<body> <!--Add padding to jumbotron and move buttons to "nav bar"-->
-    <div class="jumbotron jumbotron-fluid" style="background-color: black">
-        <div class="container" style="color: white">
-          <h1 class="display-4">Welcome to Kanye Central :)</h1>
-          <p class="lead">This is a Kanye space.</p>
+
+<header>
+  <body> <!--Add padding to jumbotron and move buttons to "nav bar"-->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="header" style="color: white">
+          <h1 class="display-4">Kanye Krazy</h1>
+          <p class="lead">This is a Kanye safe space.</p>
         </div>
       </div>
-    <footer>
-        <!--Carousel start-->
-        <div id="carouselExampleCaptions" class="carousel slide w-50" data-ride="carousel" style="border: 1px solid red">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="https://i.kym-cdn.com/entries/icons/original/000/033/421/cover2.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block font-style1">
-                  <h5>First slide label</h5>
-                  <p>Some representative placeholder content for the first slide.</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="https://i.kym-cdn.com/entries/icons/original/000/033/421/cover2.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block font-style2">
-                  <h5>Second slide label</h5>
-                  <p>shbdjebf</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="https://i.kym-cdn.com/entries/icons/original/000/033/421/cover2.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block font-style3">
-                  <h5>Third slide label</h5>
-                  <p>Good morning Kanye.</p>
-                </div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </button>
-          </div>
-          <div class='container text-center'>
-            <h1>Kanye Quotes</h1>
-            <p>These are Kanye Quotes that will be generated for your mood</p>
-            <button class='btn btn-success'>Generate</button>
-            <p id='random_quote'></p>
-          </div>  
-    <div class="d-grid gap-2">
-        <button class="genBtn" type="button">Generate Quote</button>
-        <button class="resetBtn" type="button">Reset</button>
-      </div>
-      <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
+</header>
   
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+<body id="body">
+  <!-- the div weatherWidget-->
+  <div id="header" class="weatherWidget" style="background-color:rgb(51, 10, 10);" > 
+  </div>
+  <script>
+     window.weatherWidgetConfig =  window.weatherWidgetConfig || [];
+     window.weatherWidgetConfig.push({
+         selector:".weatherWidget",
+         apiKey:"D5TREWHFNXH32L3DTKH8GB4LQ", //Sign up for your personal key
+         location:"New York, NY", //Enter an address
+         unitGroup:"us", //"us" or "metric"
+         forecastDays: 7, //how many days forecast to show
+         title:"New York,NY", //optional title to show in the
+         showTitle:true,
+         showConditions:true
+     });
+     (function() {
+     var d = document, s = d.createElement('script');
+     s.src = 'https://www.visualcrossing.com/widgets/forecast-simple/weather-forecast-widget-simple.js';
+     s.setAttribute('data-timestamp', +new Date());
+     (d.head || d.body).appendChild(s);
+     })();
+  </script>
+     <!--weather forecast-->
+
+     <div class= " horizontalweatherForcast" data-key= "D5TREWHFNXH32L3DTKH8GB4LQ" data-location= "New York citie, NY" data-uniGroup= "metric"></div>
+    <div>
+
+    <!-- Quote Box -->
+    <div class="block text-center">
+  
+      <!-- Front part of the Quote Box -->
+    <div class = "quote-box block__main block__front">
+  
+      <!-- Quote to be Displayed Here -->
+      <span class="quote">
+          
+        <!-- Hyphen is Displayed  -->
+        <i class="fas fa-2x fa-quote-left"></i>
+  
+        <!-- Quote Text -->
+        <span id="frontquote" class="text">
+        Click For Enlightenment
+        </span>
+  
+      </span>
+        
+      <!-- Author to be Displayed Here -->
+      <div class="author">
+        Wise Words From Ye
+      </div>
+      <button  id="frontbutton" class="new-quote btn btn-default" 
+          onclick="newQuote()">Generate</button>
+    </div>
+  
+    <!-- Back Part of the Quote Box -->
+    <div class="quote-box block__main block__back">
+  
+      <!-- Quote to be Displayed Here -->
+      <span class="quote">
+          
+        <!-- Hyphen is Displayed  -->
+        <i class="fas fa-2x fa-quote-left"></i>
+  
+        <!-- Quote Text -->
+        <span id="backquote" class="text">
+          Click Me
+        </span>
+  
+      </span>
+        
+      <!-- Author to be Displayed Here -->
+      <div class="author">
+        Wise Words From Ye
+      </div>
+        <!-- Button -->
+        <button  id="backbutton" class="new-quote btn btn-default " 
+            onclick="newQuote()">Generate</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div id="carouselExampleCaptions" class="carousel slide w-50" data-ride="carousel" style="border: 1px solid red">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://i.kym-cdn.com/entries/icons/original/000/033/421/cover2.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block font-style1">
+          <h5>First slide label</h5>
+          <p>Some representative placeholder content for the first slide.</p>
         </div>
-        <div class="modal-body">
-          ...
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.kym-cdn.com/entries/icons/original/000/033/421/cover2.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block font-style2">
+          <h5>Second slide label</h5>
+          <p>shbdjebf</p>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.kym-cdn.com/entries/icons/original/000/033/421/cover2.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block font-style3">
+          <h5>Third slide label</h5>
+          <p>Good morning Kanye.</p>
         </div>
       </div>
     </div>
+    <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </button>
   </div>
-    <p>Thanks for visiting Kanye</p>
+
 </footer>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="script.js"></script>
 </body>
+
+
 </html>
